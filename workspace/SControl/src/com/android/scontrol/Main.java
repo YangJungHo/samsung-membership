@@ -12,4 +12,3 @@ public class Main extends Activity {
     }
 }
 ///////////Git test yjh////////////////////
-///////////Git test2 yjh////////////////////

@@ -1,11 +1,37 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/scontroll"
+    android:layout_height="match_parent"
+    android:background="@drawable/scontrolll"
     android:orientation="vertical" >
-    
 
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_x="230dp"
+        android:layout_y="210dp" />
+
+    <SeekBar
+        android:id="@+id/SeekBar2"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_x="230dp"
+        android:layout_y="240dp" />
+
+    <SeekBar
+        android:id="@+id/SeekBar3"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_x="230dp"
+        android:layout_y="270dp" />
+
+    <SeekBar
+        android:id="@+id/SeekBar4"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_x="230dp"
+        android:layout_y="300dp" />
 
 </AbsoluteLayout>
 

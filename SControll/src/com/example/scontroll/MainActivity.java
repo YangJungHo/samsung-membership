@@ -28,10 +28,12 @@ public class MainActivity extends Activity {
 		fuel fuelGauge = new fuel(this);
 		Battery batteryGauge = new Battery(this);
 		coolant coolantGauge = new coolant(this);    
+		rpm rpmGauge = new rpm(this);
 		addContentView(vw, new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );  
 		addContentView(batteryGauge, new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );  
 		addContentView(fuelGauge, new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );  
 		addContentView(coolantGauge, new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );  
+		addContentView(rpmGauge, new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );  
         
 		mTest = (test1)this.getApplicationContext();
 		

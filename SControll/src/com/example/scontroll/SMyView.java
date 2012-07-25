@@ -1,14 +1,19 @@
 package com.example.scontroll;
 
+import android.R.color;
+import android.R.string;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.TextView;
 
 public class SMyView extends View{
 	int count = 0;
@@ -155,5 +160,75 @@ class coolant extends View{
         canvas.drawBitmap(NeedleResize, CenterX - NeedleWidth, CenterY - (NeedleHeight+130), null); //	속도게이지 배치
 	}
 	
+}// class
+
+class rpm extends View {
+	private test1 mTest;
+
+	public rpm(Context context){
+		super(context);
+		mTest = (test1)context.getApplicationContext();
+
+		
+	}
+	public void onDraw(Canvas canvas){
+		int CenterX = (getWidth() / 2)+410;
+        int CenterY = (getWidth() / 2)-450;
+        int RpmWidth = 0;
+        int RpmHeight = 0;
+        int texstInterval = 35;
+        
+        
+
+        Bitmap rpm = BitmapFactory.decodeResource(getResources(), R.drawable.wheel);
+        Bitmap rpmResize = Bitmap.createScaledBitmap(rpm, 410, 330, true);
+        
+        RpmWidth = rpmResize.getWidth() / 2;
+        RpmHeight = rpmResize.getHeight() / 2;
+        
+        
+        canvas.drawBitmap(rpmResize, CenterX - RpmWidth, CenterY - RpmHeight, null);
+        Paint Pnt = new Paint();
+        Pnt.setColor(Color.LTGRAY);	// 회전축(원) 표시색 RED
+        Pnt.setTypeface(Typeface.create(Typeface.SERIF,Typeface.NORMAL));
+        Pnt.setTextSize(19);
+        Pnt.setTextAlign(Paint.Align.CENTER);
+        	
+        Pnt.setPathEffect(new CornerPathEffect(10));
+        Pnt.setColor(Color.LTGRAY);	// 회전축(원) 표시색 RED
+        //String line1 = "주행제어기";
+        //String line2 = "전력제어기";
+        //String line3 = "휠서보제어기";
+        //String line4 = "무장제어기";
+        //String line5 = "통합냉각제어기";
+
+        //canvas.drawText(line1, CenterX, CenterY-texstInterval, Pnt);
+        //canvas.drawText(line2, CenterX, CenterY+texstInterval*0, Pnt);
+        //canvas.drawText(line3, CenterX, CenterY+texstInterval*1, Pnt);
+        //canvas.drawText(line4, CenterX, CenterY+texstInterval*2, Pnt);
+        //canvas.drawText(line5, CenterX, CenterY+texstInterval*3, Pnt);
+        
+        Pnt.setColor(-16728321);	// 회전축(원) 표시색 RED
+        Pnt.setTextSize(22);
+        Pnt.setTextAlign(Paint.Align.CENTER);
+        
+        String leftTop = ""+mTest.getVelocityAngle();
+        String leftMid = ""+mTest.getVelocityAngle();
+        String leftBot = ""+mTest.getVelocityAngle();
+        String rightTop = ""+mTest.getVelocityAngle();
+        String rightMid = ""+mTest.getVelocityAngle();
+        String rightBot = ""+mTest.getVelocityAngle();
+        Pnt.setTextSize(17);
+        
+        canvas.drawText(leftTop, CenterX-150, CenterY-texstInterval, Pnt);
+        canvas.drawText(leftMid, CenterX-150, CenterY+texstInterval*1, Pnt);
+        canvas.drawText(leftBot, CenterX-150, CenterY+texstInterval*3, Pnt);
+        canvas.drawText(rightTop, CenterX+150, CenterY-texstInterval, Pnt);
+        canvas.drawText(rightMid, CenterX+150, CenterY+texstInterval*1, Pnt);
+        canvas.drawText(rightBot, CenterX+150, CenterY+texstInterval*3, Pnt);
+        
+        
+
+	}
 }// class
 
